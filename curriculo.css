@@ -110,6 +110,11 @@
     margin-bottom: 0;
 }
 
+.contatos .item-contato .link {
+    text-decoration: none;
+    color: #000000;
+}
+
 .objetivo {
     grid-column: 1 / span 1;
     grid-row: 3 / span 1;
