@@ -7,22 +7,58 @@
 }
 
 .page {
-    width: 100vw;
-    height: 284vh;
-    background: #cccccc;
+    width: 60vw;
+    height: auto;
+    background: #ffffff;
     display: flex;
     justify-content: center;
-    font-family: inter;
+    font-family: inter;    
+    padding: 3vh 20vw 3vh 20vw;
 }
 
 .curriculo {
-    width: 60vw;
-    height: 280vh;
+    width: auto;
+    height: auto;
     background-color: #FFFFFF;
-    margin: 2vh 0 2vh 0;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: repeat(5, auto);
+    border: 1vw solid #000000;
+}
+
+.barra {
+    height: auto;
+    background-color: #000000;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 5;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20vw auto;
+}
+
+.barra .foto {
+    height: 12vw;
+    width: 12vw;
+    justify-self: center;
+    margin-top: 5vh;
+    border-radius: 50%;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.barra .lista-competencias {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    color: #FFFFFF;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barra .lista-competencias .titulo {
+    font-size: 1.8em;
+    margin-bottom: 1em;
 }
 
 .cabecalho {
@@ -48,29 +84,30 @@
     grid-row: 2 / span 1;
     margin: var(--margin-padrao);
     font-size: 1.1em;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1em;
 }
 
 .contatos .item-contato {
-    margin: 0 0 2vh 0;
+    grid-row: span 1;
     display: grid;
     grid-template-columns: 3.5vw 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
 }
 
 .contatos .item-contato .icone {
-    display: inline;
     margin-right: 0.5em; 
     grid-column: 1 / span 1;
-    justify-self: center;
-}
-
-.contatos .item-contato .icone .subicones {
-    margin-right: 0.4vw;
+    font-size: 1.5em;
 }
 
 .contatos .item-contato .texto {
     font-weight: 400;
     display: inline;
     grid-column: 2 / span 1;
+    margin-bottom: 0;
 }
 
 .objetivo {
@@ -98,11 +135,12 @@
 
 .textopeq {
     font-size: 0.8em;
-    margin: 0 0 0.5em 0.5vw;
+    margin: 0 0 0.5em 1vw;
 }
 
 .textoObs {
-    margin: 4vh 0vh 0vh -1vw;
+    margin-top: 4vh;
+    text-align: center;
 }
 
 .experiencia {
@@ -116,10 +154,7 @@
     grid-template-areas: 
         "area1 area3"
         "area2 area4";
-}
-
-.experiencia .lista-itens .item {
-    margin: 0 1vw 3vh 0;
+    gap: 2vw;
 }
 
 .experiencia .lista-itens .item1 {
@@ -143,37 +178,121 @@
     margin: 0 0 3vh 1vw;
 }   
 
-.barra {
-    height: 280vh;
-    background-color: #000000;
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 5;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 20vw auto
+.formacoes .bloco .formacao {
+    margin-bottom: 3vh;
 }
 
-.barra .foto {
-    height: 12vw;
-    width: 12vw;
-    justify-self: center;
-    margin-top: 5vw;
-    border-radius: 50%;
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+@media (max-width: 480px) {
+    :root {
+        --margin-padrao: 0vh 5vw 8vh 5vw;
+    }
+    
+    .page {
+        background-color: #000000;
+    }
+    
+    .curriculo {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+
+    .barra {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+
+    .barra .foto {
+        --tamanho-foto: 70vw;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        height: var(--tamanho-foto);
+        width: var(--tamanho-foto);
+        margin-bottom: 5vh;
+    }
+
+    .barra .lista-competencias {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        margin-bottom: 5vh;
+    }
+
+    .lista-competencias .titulo {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+        font-size: 2.5em;
+    }
+
+    .lista-competencias .texto {
+        justify-self: center;
+        font-size: 1.5em;
+    }
+
+    .cabecalho {
+        margin: 3vh 5vw 5vh 5vw;
+        text-align: center;
+    }
+
+    .cabecalho .nome {
+        font-size: 2.5em;
+    }
+    
+    .cabecalho .idade {
+        font-size: 2.0em;
+    }
+
+    .contatos {
+        margin: var(--margin-padrao);
+    }
+
+    .contatos .item-contato  {
+        grid-template-columns: 13vw 1fr;
+    }
+
+    .contatos .item-contato .icone {
+        font-size: 2em;
+    }
+
+    .contatos .item-contato .texto {
+        word-wrap: break-word;
+        width: 67vw;
+        font-size: 1em;
+    }
+
+    .titulo {
+        text-align: center;
+        margin-bottom: 2vh;
+    }
+
+    .texto {
+        font-size: 1.3em;
+    }
+
+    .objetivo {
+        text-align: center;
+    }
+
+    .experiencia .lista-itens {
+        grid-template-areas:
+            "area1"
+            "area2"
+            "area3"
+            "area4";
+        gap: 2vh;
+    }
+
+    .experiencia .lista-itens .texto {
+        margin-bottom: 0.2em;
+    }
+
+    .formacoes .textopeq {
+        font-size: 1em;
+        margin-left: 7vw;
+    }
 }
 
-.barra .lista-competencias {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
-    color: #FFFFFF;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.barra .titulo {
-    font-size: 1.8em;
-    margin-bottom: 1em;
-}
